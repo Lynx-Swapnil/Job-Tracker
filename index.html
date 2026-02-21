@@ -31,15 +31,15 @@
         <div class="grid grid-cols-3 gap-6">
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-sm text-gray-600 mb-2">Total</h2>
-                <p class="text-4xl font-bold text-gray-800">8</p>
+                <p id="count-total" class="text-4xl font-bold text-gray-800">8</p>
             </div>
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-sm text-gray-600 mb-2">Interview</h2>
-                <p class="text-4xl font-bold text-teal-500">0</p>
+                <p id="count-interview" class="text-4xl font-bold text-teal-500">0</p>
             </div>
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-sm text-gray-600 mb-2">Rejected</h2>
-                <p class="text-4xl font-bold text-red-500">0</p>
+                <p id="count-rejected" class="text-4xl font-bold text-red-500">0</p>
             </div>
         </div>
     </header>
@@ -47,7 +47,7 @@
     <main class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl font-bold text-gray-800">Available Jobs</h1>
-            <p class="text-gray-600">8 jobs</p>
+            <p id="jobs-count" class="text-gray-600">8 jobs</p>
         </div>
 
         <div class="flex gap-3 mb-6">
@@ -58,143 +58,143 @@
         
         <!-- All -->
          <section id="section-all">
-           <div class="space-y-4">
+           <div id="jobs-container-all" class="space-y-4">
             
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="1" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">Mobile First Corp</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(1)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">React Native Developer</p>
                 <p class="text-gray-500 text-sm mb-3">Remote • Full-time • $130,000 - $175,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(1, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(1, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
              
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="2" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">WebFlow Agency</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(2)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">Web Designer & Developer</p>
                 <p class="text-gray-500 text-sm mb-3">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(2, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(2, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="3" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">DataViz Solutions</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(3)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">Data Visualization Specialist</p>
                 <p class="text-gray-500 text-sm mb-3">Boston, MA • Full-time • $125,000 - $165,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(3, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(3, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="4" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">CloudFirst Inc</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(4)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">Backend Developer</p>
                 <p class="text-gray-500 text-sm mb-3">Seattle, WA • Full-time • $140,000 - $190,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(4, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(4, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="5" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">Innovation Labs</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(5)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">UI/UX Engineer</p>
                 <p class="text-gray-500 text-sm mb-3">Austin, TX • Full-time • $110,000 - $150,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(5, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(5, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="6" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">MegaCorp Solutions</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(6)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">JavaScript Developer</p>
                 <p class="text-gray-500 text-sm mb-3">New York, NY • Full-time • $130,000 - $170,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(6, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(6, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="7" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">StartupXYZ</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(7)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">Full Stack Engineer</p>
                 <p class="text-gray-500 text-sm mb-3">Remote • Full-time • $120,000 - $160,000</p>
 
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(7, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(7, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
-             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
+             <div class="job-card bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative" data-id="8" data-status="not-applied">
                 <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold text-gray-800">TechCorp Industries</h2>
-                    <button class="text-gray-400 hover:text-gray-600">
+                    <button onclick="deleteJob(8)" class="text-gray-400 hover:text-gray-600">
                         <i class="fa-regular fa-trash-can text-lg"></i>
                     </button>
                 </div>
                 <p class="text-gray-700 font-medium mb-2">Senior Frontend Developer</p>
                 <p class="text-gray-500 text-sm mb-3">San Francisco, CA • Full-time • $130,000 - $175,000</p>
-                <div class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
+                <div class="status-badge inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded mb-3">NOT APPLIED</div>
                 <p class="text-gray-600 text-sm mb-4">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
-                    <button class="px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
+                    <button onclick="changeStatus(8, 'interview')" class="btn-interview px-4 py-2 border-2 border-teal-500 text-teal-500 rounded font-semibold text-sm hover:bg-teal-50 uppercase">Interview</button>
+                    <button onclick="changeStatus(8, 'rejected')" class="btn-rejected px-4 py-2 border-2 border-red-500 text-red-500 rounded font-semibold text-sm hover:bg-red-50 uppercase">Rejected</button>
                 </div>
              </div>
 
@@ -203,30 +203,118 @@
        
         <!-- interview -->
        <section id="section-interview" style="display: none;">
-        <div class="flex flex-col items-center justify-center py-16">
-            
-             <div class="text-center flex flex-col items-center">
-                <span class="text-6xl mb-4 block"><img src="jobs.png" alt=""></span>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
-                <p class="text-gray-600">Check back soon for new job opportunities</p>
-             </div>
-
-        </div>
+           <div id="jobs-container-interview" class="space-y-4"></div>
        </section>
         
         <!-- rejected -->
           <section id="section-rejected" style="display: none;">
-            <div class="flex flex-col items-center justify-center py-16">
-                <span class="text-6xl mb-4 block"><img src="jobs.png" alt=""></span>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
-                <p class="text-gray-600">Check back soon for new job opportunities</p>
-             </div>
+            <div id="jobs-container-rejected" class="space-y-4"></div>
           </section>
     </main>
 
     <script>
+        // Track job statuses
+        let jobStatuses = {
+            1: 'not-applied', 2: 'not-applied', 3: 'not-applied', 4: 'not-applied',
+            5: 'not-applied', 6: 'not-applied', 7: 'not-applied', 8: 'not-applied'
+        };
+
+        let currentFilter = 'all';
+
+        // Update dashboard counts
+        function updateCounts() {
+            let interviewCount = 0;
+            let rejectedCount = 0;
+            let totalCount = 0;
+
+            for (let id in jobStatuses) {
+                if (jobStatuses[id]) {
+                    totalCount++;
+                    if (jobStatuses[id] === 'interview') interviewCount++;
+                    if (jobStatuses[id] === 'rejected') rejectedCount++;
+                }
+            }
+
+            document.getElementById('count-total').textContent = totalCount;
+            document.getElementById('count-interview').textContent = interviewCount;
+            document.getElementById('count-rejected').textContent = rejectedCount;
+
+            // Update jobs count based on current filter
+            updateJobsCount();
+        }
+
+        // Update the jobs count on the right side
+        function updateJobsCount() {
+            let count = 0;
+            const allCards = document.querySelectorAll('#jobs-container-all .job-card');
+            
+            if (currentFilter === 'all') {
+                count = allCards.length;
+            } else if (currentFilter === 'interview') {
+                allCards.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (status === 'interview') count++;
+                });
+            } else if (currentFilter === 'rejected') {
+                allCards.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (status === 'rejected') count++;
+                });
+            }
+            document.getElementById('jobs-count').textContent = count + ' jobs';
+        }
+
+        // Change job status (Interview or Rejected)
+        function changeStatus(jobId, newStatus) {
+            const jobCard = document.querySelector(`#jobs-container-all [data-id="${jobId}"]`);
+            if (!jobCard) return;
+
+            // Update status
+            jobStatuses[jobId] = newStatus;
+
+            // Update the status badge
+            const statusBadge = jobCard.querySelector('.status-badge');
+            if (newStatus === 'interview') {
+                statusBadge.textContent = 'INTERVIEW';
+                statusBadge.className = 'status-badge inline-block bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded mb-3';
+            } else if (newStatus === 'rejected') {
+                statusBadge.textContent = 'REJECTED';
+                statusBadge.className = 'status-badge inline-block bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded mb-3';
+            }
+
+            // Update data attribute
+            jobCard.setAttribute('data-status', newStatus);
+
+            // Update counts
+            updateCounts();
+
+            // Refresh the current view
+            filterJobs(currentFilter);
+        }
+
+        // Delete job
+        function deleteJob(jobId) {
+            const jobCard = document.querySelector(`#jobs-container-all [data-id="${jobId}"]`);
+            if (!jobCard) return;
+
+            // Remove from DOM
+            jobCard.remove();
+
+            // Remove from tracking
+            delete jobStatuses[jobId];
+
+            // Update counts
+            updateCounts();
+        }
+
+        // Filter jobs view
         function filterJobs(filter) {
-            // Hide all sections
+            currentFilter = filter;
+
+            // Get all job cards
+            const allCards = document.querySelectorAll('#jobs-container-all .job-card');
+
+            // Hide all sections first
             document.getElementById('section-all').style.display = 'none';
             document.getElementById('section-interview').style.display = 'none';
             document.getElementById('section-rejected').style.display = 'none';
@@ -240,14 +328,34 @@
             if (filter === 'all') {
                 document.getElementById('section-all').style.display = 'block';
                 document.getElementById('btn-all').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+                // Show all cards
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                });
             } else if (filter === 'interview') {
-                document.getElementById('section-interview').style.display = 'block';
+                document.getElementById('section-all').style.display = 'block';
                 document.getElementById('btn-interview').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+                // Show only interview cards
+                allCards.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    card.style.display = (status === 'interview') ? 'block' : 'none';
+                });
             } else if (filter === 'rejected') {
-                document.getElementById('section-rejected').style.display = 'block';
+                document.getElementById('section-all').style.display = 'block';
                 document.getElementById('btn-rejected').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+                // Show only rejected cards
+                allCards.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    card.style.display = (status === 'rejected') ? 'block' : 'none';
+                });
             }
+
+            // Update jobs count
+            updateJobsCount();
         }
+
+        // Initialize counts on page load
+        updateCounts();
     </script>
 </body>
 </html>

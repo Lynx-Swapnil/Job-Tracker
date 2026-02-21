@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker</title>
+ 
+    <!-- google font -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+ 
+<!-- tailwind -->
 
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+<!-- icons  -->
+ 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
@@ -45,12 +51,14 @@
         </div>
 
         <div class="flex gap-3 mb-6">
-            <a href="index.html" class="px-6 py-2 bg-blue-500 text-white rounded-md font-medium">All</a>
-            <a href="interview.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">Interview</a>
-            <a href="rejected.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">Rejected</a>
+            <button id="btn-all" onclick="filterJobs('all')" class="px-6 py-2 bg-blue-500 text-white rounded-md font-medium">All</button>
+            <button id="btn-interview" onclick="filterJobs('interview')" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">Interview</button>
+            <button id="btn-rejected" onclick="filterJobs('rejected')" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">Rejected</button>
         </div>
-
-        <div class="space-y-4">
+        
+        <!-- All -->
+         <section id="section-all">
+           <div class="space-y-4">
             
              <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 relative">
                 <div class="flex justify-between items-start mb-2">
@@ -191,6 +199,57 @@
              </div>
 
         </div>
+         </section>
+       
+      
+        <!-- interview -->
+       <section id="section-interview" style="display: none;">
+        <div class="flex flex-col items-center justify-center py-16">
+            
+             <div class="text-center flex flex-col items-center">
+                <span class="text-6xl mb-4 block"><img src="jobs.png" alt=""></span>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
+                <p class="text-gray-600">Check back soon for new job opportunities</p>
+             </div>
+
+        </div>
+       </section>
+        
+
+        <!-- rejected -->
+          <section id="section-rejected" style="display: none;">
+            <div class="text-center flex flex-col items-center">
+                <span class="text-6xl mb-4 block"><img src="jobs.png" alt=""></span>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
+                <p class="text-gray-600">Check back soon for new job opportunities</p>
+             </div>
+          </section>
     </main>
+
+    <script>
+        function filterJobs(filter) {
+            // Hide all sections
+            document.getElementById('section-all').style.display = 'none';
+            document.getElementById('section-interview').style.display = 'none';
+            document.getElementById('section-rejected').style.display = 'none';
+            
+            // Remove active class from all buttons
+            document.getElementById('btn-all').className = 'px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300';
+            document.getElementById('btn-interview').className = 'px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300';
+            document.getElementById('btn-rejected').className = 'px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300';
+            
+            // Show selected section and activate button
+            if (filter === 'all') {
+                document.getElementById('section-all').style.display = 'block';
+                document.getElementById('btn-all').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+            } else if (filter === 'interview') {
+                document.getElementById('section-interview').style.display = 'block';
+                document.getElementById('btn-interview').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+            } else if (filter === 'rejected') {
+                document.getElementById('section-rejected').style.display = 'block';
+                document.getElementById('btn-rejected').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
+            }
+        }
+    </script>
 </body>
 </html>

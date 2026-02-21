@@ -204,11 +204,25 @@
         <!-- interview -->
        <section id="section-interview" style="display: none;">
            <div id="jobs-container-interview" class="space-y-4"></div>
+           <div id="empty-interview" class="flex flex-col items-center justify-center py-40" style="display: none;">
+               <div class="text-center flex flex-col items-center">
+                    <img src="jobs.png" alt="">
+                   <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
+                   <p class="text-gray-600">Check back soon for new job opportunities</p>
+               </div>
+           </div>
        </section>
         
         <!-- rejected -->
           <section id="section-rejected" style="display: none;">
             <div id="jobs-container-rejected" class="space-y-4"></div>
+            <div id="empty-rejected" class="flex flex-col items-center justify-center py-40" style="display: none;">
+                <div class="text-center flex flex-col items-center">
+                    <img src="jobs.png" alt="">
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
+                    <p class="text-gray-600">Check back soon for new job opportunities</p>
+                </div>
+            </div>
           </section>
     </main>
 
@@ -334,20 +348,52 @@
                 });
             } else if (filter === 'interview') {
                 document.getElementById('section-all').style.display = 'block';
+                document.getElementById('section-interview').style.display = 'block';
                 document.getElementById('btn-interview').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
-                // Show only interview cards
+                
+                // Count and show only interview cards
+                let visibleCount = 0;
                 allCards.forEach(card => {
                     const status = card.getAttribute('data-status');
-                    card.style.display = (status === 'interview') ? 'block' : 'none';
+                    if (status === 'interview') {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
+                
+                // Show empty state if no cards
+                if (visibleCount === 0) {
+                    document.getElementById('section-all').style.display = 'none';
+                    document.getElementById('empty-interview').style.display = 'flex';
+                } else {
+                    document.getElementById('empty-interview').style.display = 'none';
+                }
             } else if (filter === 'rejected') {
                 document.getElementById('section-all').style.display = 'block';
+                document.getElementById('section-rejected').style.display = 'block';
                 document.getElementById('btn-rejected').className = 'px-6 py-2 bg-blue-500 text-white rounded-md font-medium';
-                // Show only rejected cards
+                
+                // Count and show only rejected cards
+                let visibleCount = 0;
                 allCards.forEach(card => {
                     const status = card.getAttribute('data-status');
-                    card.style.display = (status === 'rejected') ? 'block' : 'none';
+                    if (status === 'rejected') {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
+                
+                // Show empty state if no cards
+                if (visibleCount === 0) {
+                    document.getElementById('section-all').style.display = 'none';
+                    document.getElementById('empty-rejected').style.display = 'flex';
+                } else {
+                    document.getElementById('empty-rejected').style.display = 'none';
+                }
             }
 
             // Update jobs count

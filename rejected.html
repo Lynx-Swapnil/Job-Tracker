@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Tracker</title>
+    <title>Job Tracker - Rejected</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,37 +19,43 @@
     }
 </style>
 </head>
-<body>
-    <header>
-        <h1>Job Application Tracker</h1>
-        <div>
-             <h2>Total</h2>
-             <p>8</p>
-        </div>
-        <div>
-           <h2>Interview</h2>
-           <p>0</p>
-        </div>
-        <div>
-            <h2>Rejected</h2>
-            <p>0</p>
+<body class="bg-gray-50 p-8">
+    <header class="max-w-6xl mx-auto mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-sm text-gray-600 mb-2">Total</h2>
+                <p class="text-4xl font-bold text-gray-800">8</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-sm text-gray-600 mb-2">Interview</h2>
+                <p class="text-4xl font-bold text-teal-500">0</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-sm text-gray-600 mb-2">Rejected</h2>
+                <p class="text-4xl font-bold text-red-500">0</p>
+            </div>
         </div>
     </header>
 
-    <main>
-        <h1>Available Jobs</h1>
-        <p>8 jobs</p>
+    <main class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold text-gray-800">Available Jobs</h1>
+            <p class="text-gray-600">8 jobs</p>
+        </div>
 
-        <button>All</button>
-        <button>Interview</button>
-        <button>Rejected</button>
+        <div class="flex gap-3 mb-6">
+            <a href="index.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">All</a>
+            <a href="interview.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md font-medium hover:bg-gray-300">Interview</a>
+            <a href="rejected.html" class="px-6 py-2 bg-blue-500 text-white rounded-md font-medium">Rejected</a>
+        </div>
 
-        <div>
+        <div class="flex flex-col items-center justify-center py-16">
             
-             <div>
-                <span><i class="fa-regular fa-file"></i></span>
-                <h2>No jobs available</h2>
-                <p>Check back soon for new job opportunities</p>
+             <div class="text-center flex flex-col items-center">
+                <span class="text-6xl mb-4 block"><img src="jobs.png" alt=""></span>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">No jobs available</h2>
+                <p class="text-gray-600">Check back soon for new job opportunities</p>
              </div>
 
         </div>
